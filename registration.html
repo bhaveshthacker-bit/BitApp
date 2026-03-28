@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden max-w-md mx-auto">
+<!-- Top App Bar -->
+<div class="flex items-center bg-white dark:bg-slate-800 p-4 sticky top-0 z-10 shadow-sm">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Student Registration</h2>
+</div>
+<!-- Form Container -->
+<div class="p-4 space-y-6">
+<!-- Basic Information Card -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm space-y-4">
+<h3 class="text-sm font-bold uppercase tracking-wider text-primary/80 mb-2">Basic Information</h3>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Registration Number</p>
+<input class="form-input w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary h-12 px-4" placeholder="REG-2024-001" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Registration Date</p>
+<div class="relative">
+<input class="form-input w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary h-12 px-4" type="date"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Full Name</p>
+<input class="form-input w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary h-12 px-4" placeholder="John Doe" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Date of Birth</p>
+<input class="form-input w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary h-12 px-4" type="date"/>
+</div>
+</div>
+<!-- Academic Details Card -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm space-y-4">
+<h3 class="text-sm font-bold uppercase tracking-wider text-primary/80 mb-2">Academic Details</h3>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Education</p>
+<input class="form-input w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary h-12 px-4" placeholder="e.g. High School, Graduate" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Course</p>
+<select class="form-select w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary h-12 px-4">
+<option value="">Select a course</option>
+<option value="cs">Computer Science</option>
+<option value="math">Mathematics</option>
+<option value="design">Graphic Design</option>
+<option value="business">Business Admin</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Batch Start</p>
+<select class="form-select w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary h-12 px-4 text-sm">
+<option>09:00 AM</option>
+<option>10:00 AM</option>
+<option>11:00 AM</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Batch End</p>
+<select class="form-select w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary h-12 px-4 text-sm">
+<option>10:00 AM</option>
+<option>11:00 AM</option>
+<option>12:00 PM</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Contact Information Card -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm space-y-4">
+<h3 class="text-sm font-bold uppercase tracking-wider text-primary/80 mb-2">Contact Details</h3>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Mobile Number</p>
+<input class="form-input w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary h-12 px-4" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Parent's Contact</p>
+<input class="form-input w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary h-12 px-4" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Full Address</p>
+<textarea class="form-textarea w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary min-h-[100px] p-4 resize-none" placeholder="Enter complete residential address"></textarea>
+</div>
+</div>
+<!-- File Uploads Card -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm space-y-4">
+<h3 class="text-sm font-bold uppercase tracking-wider text-primary/80 mb-2">Required Documents</h3>
+<div class="grid grid-cols-3 gap-3">
+<div class="flex flex-col items-center justify-center border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-900/50 hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary mb-2 group-hover:scale-110 transition-transform">account_circle</span>
+<span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">Photo</span>
+</div>
+<div class="flex flex-col items-center justify-center border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-900/50 hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary mb-2 group-hover:scale-110 transition-transform">description</span>
+<span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase text-center leading-tight">Doc 1</span>
+</div>
+<div class="flex flex-col items-center justify-center border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-900/50 hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary mb-2 group-hover:scale-110 transition-transform">description</span>
+<span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase text-center leading-tight">Doc 2</span>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pb-8">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+<span>Register Student</span>
+<span class="material-symbols-outlined text-lg">how_to_reg</span>
+</button>
+<p class="text-center text-slate-400 dark:text-slate-500 text-xs mt-4">
+                    By registering, you agree to our Terms of Service
+                </p>
+</div>
+</div>
+</div>
+</body></html>

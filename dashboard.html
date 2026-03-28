@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Management Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Header Section -->
+<header class="mb-8">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div>
+<h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Students</h1>
+<p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Manage and track student progress and financial status.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+<span class="material-symbols-outlined mr-2 text-[20px]">add</span>
+                        Add Student
+                    </button>
+</div>
+</div>
+<!-- Search and Filter Bar -->
+<div class="mt-6 flex flex-col sm:flex-row gap-3">
+<div class="relative flex-1">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="material-symbols-outlined text-slate-400 text-[20px]">search</span>
+</div>
+<input class="block w-full rounded-lg border-0 py-2.5 pl-10 text-slate-900 ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-700 dark:text-white sm:text-sm sm:leading-6" placeholder="Search by name, ID or course..." type="text"/>
+</div>
+<button class="inline-flex items-center gap-x-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-inset ring-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-200 dark:ring-slate-700">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+                    Filters
+                </button>
+</div>
+<!-- Fast Filters / Tabs -->
+<div class="mt-6 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="whitespace-nowrap rounded-full bg-primary px-4 py-1.5 text-xs font-medium text-white">All Students</button>
+<button class="whitespace-nowrap rounded-full bg-white border border-slate-200 px-4 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300">Active (Running)</button>
+<button class="whitespace-nowrap rounded-full bg-white border border-slate-200 px-4 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300">On Break</button>
+<button class="whitespace-nowrap rounded-full bg-white border border-slate-200 px-4 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300">Completed</button>
+</div>
+</header>
+<!-- Student List View -->
+<div class="space-y-4">
+<!-- Student Card 1: Running -->
+<div class="group relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:shadow-md dark:border-slate-700 dark:bg-slate-800">
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<div class="h-14 w-14 flex-shrink-0 rounded-full bg-slate-100 bg-cover bg-center dark:bg-slate-700" data-alt="Portrait of a male student" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD06RsQJeXXOeUMzhpUdvdfzHHh6inJh7CKRjA7epv8lkaguBZY6v3O3X3KaAnVb4OeJUDW3CZgI2-9XTNERIxWgpOfkaaEoDwX4-17z_un633PH3uaI7o7xb8cd2S3UgIS3jdRxJIm_gcMcMhMsJXXVoS3OGm_ualz5cGhEWigvzakDqFM_yPG12JXdI8X8KCGGuMBOWghIcgioX3SgMc-wBDKiOCpc0ZALlg-05LZnDt1j2dLW7srkrRcLpWbLkBuFltjmLICndQs')"></div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Johnathan Chen</h3>
+<span class="inline-flex items-center rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 dark:bg-green-500/10 dark:text-green-400 dark:ring-green-500/20">Running</span>
+</div>
+<p class="text-xs font-medium text-slate-400 tracking-wider uppercase mt-0.5">REG-2024-0812</p>
+</div>
+</div>
+<div class="flex flex-row sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto pt-4 sm:pt-0 border-t sm:border-t-0 border-slate-100 dark:border-slate-700">
+<div class="text-sm">
+<span class="text-slate-500 dark:text-slate-400">Fees Due:</span>
+<span class="ml-1 font-bold text-slate-900 dark:text-white">$1,250.00</span>
+</div>
+<button class="sm:mt-2 text-primary text-sm font-semibold hover:underline flex items-center">
+                        View Profile
+                        <span class="material-symbols-outlined text-[18px] ml-1">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Student Card 2: Break -->
+<div class="group relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:shadow-md dark:border-slate-700 dark:bg-slate-800">
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<div class="h-14 w-14 flex-shrink-0 rounded-full bg-slate-100 bg-cover bg-center dark:bg-slate-700" data-alt="Portrait of a female student" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDbazpZPe1DJjXY6BXqfgqnO4g_a8lx4Y1in7bqXj8hH9LHcsQhmChGp4SnSD9tcAt8VWjw1TOVB_2-rskS_350wnUg8xwtkH_NEZiNj2WZSXO0FoqmuihqsqTDHqNt_lEOeZGmhyMCv6X9jb-d_lqvew2eLNuS7GmKzLQaEu4YFR2_dGA2KjdHQoO5WoNOvJ5xFwwx9m4iZJ-hSCKTsgKhJBUG7IpHbwLWCkS0BaVAAX7NgoAHOcUxt3YgcSLUG1W2FEwfPDIVj38')"></div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Sarah Williams</h3>
+<span class="inline-flex items-center rounded-full bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-700 ring-1 ring-inset ring-amber-600/20 dark:bg-amber-500/10 dark:text-amber-400 dark:ring-amber-500/20">Break</span>
+</div>
+<p class="text-xs font-medium text-slate-400 tracking-wider uppercase mt-0.5">REG-2024-0442</p>
+</div>
+</div>
+<div class="flex flex-row sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto pt-4 sm:pt-0 border-t sm:border-t-0 border-slate-100 dark:border-slate-700">
+<div class="text-sm">
+<span class="text-slate-500 dark:text-slate-400">Fees Due:</span>
+<span class="ml-1 font-bold text-slate-900 dark:text-white">$0.00</span>
+</div>
+<button class="sm:mt-2 text-primary text-sm font-semibold hover:underline flex items-center">
+                        View Profile
+                        <span class="material-symbols-outlined text-[18px] ml-1">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Student Card 3: Completed -->
+<div class="group relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:shadow-md dark:border-slate-700 dark:bg-slate-800">
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<div class="h-14 w-14 flex-shrink-0 rounded-full bg-slate-100 bg-cover bg-center dark:bg-slate-700" data-alt="Portrait of a student with glasses" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1LycCpixPOw6NNMezcnRDtCG7GRkUDP7z681KxtLgG5hXJ9mZE2YxRPfxdLG_LGnxoXB0Gk7_C5NmTDjNgE8VTni0EHzHFIxxIMt-uZWT98J61GAyNxjoTx0IB6DVqu5nW6prNvK06O5SuiIxzDSU1oO7fPvdC7yvApgGSowYBOif_K0RvsjDfbP0hUn7RLGKN_RKOYh8ipotxi0UuS71rzgPJNBn6ZpHCpvk4xsXEVu_9r8MHkxPBxXCNOVo53xmZapAlyNVA9z2')"></div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Michael Rodriguez</h3>
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary ring-1 ring-inset ring-primary/20 dark:bg-primary/10 dark:text-primary dark:ring-primary/20">Completed</span>
+</div>
+<p class="text-xs font-medium text-slate-400 tracking-wider uppercase mt-0.5">REG-2023-0912</p>
+</div>
+</div>
+<div class="flex flex-row sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto pt-4 sm:pt-0 border-t sm:border-t-0 border-slate-100 dark:border-slate-700">
+<div class="text-sm">
+<span class="text-slate-500 dark:text-slate-400">Fees Due:</span>
+<span class="ml-1 font-bold text-slate-900 dark:text-white">$0.00</span>
+</div>
+<button class="sm:mt-2 text-primary text-sm font-semibold hover:underline flex items-center">
+                        View Profile
+                        <span class="material-symbols-outlined text-[18px] ml-1">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Student Card 4: Cancelled -->
+<div class="group relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:shadow-md dark:border-slate-700 dark:bg-slate-800">
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<div class="h-14 w-14 flex-shrink-0 rounded-full bg-slate-100 bg-cover bg-center dark:bg-slate-700" data-alt="Portrait of a young man" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4wJq4JWPOeq58IQcoPpH9qm7aluqqxA3rb37KFXH9f6twF91ZZBi-Jxv5hcHjOTbhRo03kjgnilo2tlUa-UTrnp2WjIP8M25WWzWF8h2rGmYSXzCi8PLTaQqHGC-0M79GBjbnZ0ukIhfz1wOfSv1MyWcPcOpVLftS1xKAMOfF7eOLyP2jFShf-ga7yv6QmxivjZfmhbH8hjQ8tNdo_B-M5EKfRs9k4ZyQdeJ35UTyzbruvai5n4r90jlc4f6cFB3ueqmZU3osDh8U')"></div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">David Kim</h3>
+<span class="inline-flex items-center rounded-full bg-red-50 px-2 py-0.5 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20 dark:bg-red-500/10 dark:text-red-400 dark:ring-red-500/20">Cancelled</span>
+</div>
+<p class="text-xs font-medium text-slate-400 tracking-wider uppercase mt-0.5">REG-2024-1102</p>
+</div>
+</div>
+<div class="flex flex-row sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto pt-4 sm:pt-0 border-t sm:border-t-0 border-slate-100 dark:border-slate-700">
+<div class="text-sm">
+<span class="text-slate-500 dark:text-slate-400">Fees Due:</span>
+<span class="ml-1 font-bold text-slate-900 dark:text-white">$450.00</span>
+</div>
+<button class="sm:mt-2 text-primary text-sm font-semibold hover:underline flex items-center">
+                        View Profile
+                        <span class="material-symbols-outlined text-[18px] ml-1">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Student Card 5: Running -->
+<div class="group relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:shadow-md dark:border-slate-700 dark:bg-slate-800">
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<div class="h-14 w-14 flex-shrink-0 rounded-full bg-slate-100 bg-cover bg-center dark:bg-slate-700" data-alt="Portrait of a woman smiling" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzD4dIC7n9hqiXXozmjc3lAiRr5kzK2a-axsgpv_pKmeNYaFj8MDeEKv7SZ2r3-PT3UDvd6gtawHT3rUVg39jbyuJzffpyJXNkbT9ZVgSr-AKGN982E4vGSN285zbX15HVuCqc9IWquisgU7HfC0dB-VRtF5vhLcOUGmxEi3tHEQ9HOWs36-OQn2wdgqs3gQmvII0GOnGWu0jcLc9ENOgtfD-imaeOuad9fUtY4h7VdAoR9twCTpxwXHlaNQce5T_wH6KILhl41wI9')"></div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Elena Petrova</h3>
+<span class="inline-flex items-center rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 dark:bg-green-500/10 dark:text-green-400 dark:ring-green-500/20">Running</span>
+</div>
+<p class="text-xs font-medium text-slate-400 tracking-wider uppercase mt-0.5">REG-2024-1255</p>
+</div>
+</div>
+<div class="flex flex-row sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto pt-4 sm:pt-0 border-t sm:border-t-0 border-slate-100 dark:border-slate-700">
+<div class="text-sm">
+<span class="text-slate-500 dark:text-slate-400">Fees Due:</span>
+<span class="ml-1 font-bold text-slate-900 dark:text-white">$2,100.00</span>
+</div>
+<button class="sm:mt-2 text-primary text-sm font-semibold hover:underline flex items-center">
+                        View Profile
+                        <span class="material-symbols-outlined text-[18px] ml-1">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-8 flex items-center justify-between border-t border-slate-200 pt-6 dark:border-slate-700">
+<div class="flex flex-1 justify-between sm:hidden">
+<a class="relative inline-flex items-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300" href="#">Previous</a>
+<a class="relative ml-3 inline-flex items-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300" href="#">Next</a>
+</div>
+<div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+<div>
+<p class="text-sm text-slate-700 dark:text-slate-400">
+                        Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of <span class="font-medium">156</span> results
+                    </p>
+</div>
+<div>
+<nav aria-label="Pagination" class="isolate inline-flex -space-x-px rounded-md shadow-sm">
+<a class="relative inline-flex items-center rounded-l-md px-2 py-2 text-slate-400 ring-1 ring-inset ring-slate-200 hover:bg-slate-50 focus:z-20 focus:outline-offset-0 dark:ring-slate-700 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">chevron_left</span>
+</a>
+<a aria-current="page" class="relative z-10 inline-flex items-center bg-primary px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href="#">1</a>
+<a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-slate-900 ring-1 ring-inset ring-slate-200 hover:bg-slate-50 focus:z-20 focus:outline-offset-0 dark:text-slate-300 dark:ring-slate-700 dark:hover:bg-slate-800" href="#">2</a>
+<a class="relative hidden items-center px-4 py-2 text-sm font-semibold text-slate-900 ring-1 ring-inset ring-slate-200 hover:bg-slate-50 focus:z-20 focus:outline-offset-0 dark:text-slate-300 dark:ring-slate-700 dark:hover:bg-slate-800 md:inline-flex" href="#">3</a>
+<span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-slate-700 ring-1 ring-inset ring-slate-200 focus:outline-offset-0 dark:text-slate-500 dark:ring-slate-700">...</span>
+<a class="relative inline-flex items-center rounded-r-md px-2 py-2 text-slate-400 ring-1 ring-inset ring-slate-200 hover:bg-slate-50 focus:z-20 focus:outline-offset-0 dark:ring-slate-700 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 dark:bg-slate-900 dark:border-slate-800 lg:hidden">
+<div class="flex justify-around items-center h-16 px-4">
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined text-[24px]">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-[24px] fill-current">group</span>
+<span class="text-[10px] font-medium">Students</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined text-[24px]">book</span>
+<span class="text-[10px] font-medium">Courses</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+<span class="text-[10px] font-medium">Fees</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</a>
+</div>
+</nav>
+</body></html>

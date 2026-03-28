@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fees Register - Student Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold tracking-tight">Fees Register</h1>
+</div>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 text-primary font-medium text-sm">
+<span class="material-symbols-outlined text-sm">download</span>
+                Statement
+            </button>
+</div>
+</header>
+<main class="flex-1 max-w-4xl mx-auto w-full p-4 space-y-6 pb-24">
+<!-- Add Payment Form Section -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50 flex items-center justify-between">
+<div>
+<h2 class="text-lg font-bold">Add Payment</h2>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Record a new transaction for Student #STU-2024-001</p>
+</div>
+<span class="px-2.5 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-bold uppercase tracking-wider rounded">Active Term</span>
+</div>
+<div class="p-5">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Receipt No</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-lg">tag</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm" placeholder="e.g. REC-10293" type="text"/>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Amount</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 font-bold text-slate-400 text-sm">$</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Payment Type</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-lg">account_balance_wallet</span>
+<select class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none appearance-none transition-all text-sm">
+<option value="">Select Method</option>
+<option value="gpay">GPay / PhonePe</option>
+<option value="upi">UPI Transfer</option>
+<option value="cash">Cash Payment</option>
+<option value="card">Debit/Credit Card</option>
+</select>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Payment Date</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-lg">calendar_today</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm" type="date"/>
+</div>
+</div>
+<div class="md:col-span-2 pt-2">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg shadow-md shadow-primary/20 transition-all flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined">add_circle</span>
+                            Confirm &amp; Post Payment
+                        </button>
+</div>
+</form>
+</div>
+</section>
+<!-- Payment History Table Section -->
+<section class="space-y-4">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span>
+                    Payment History
+                </h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400 text-lg">filter_list</span>
+</button>
+<button class="p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400 text-lg">search</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Date</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Receipt No</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Amount</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors cursor-pointer">
+<td class="px-6 py-4">
+<div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Oct 12, 2023</div>
+<div class="text-xs text-slate-500">10:45 AM</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-mono text-slate-600 dark:text-slate-400">#REC-89211</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[12px] text-slate-400">credit_card</span>
+<span class="text-[10px] text-slate-400 uppercase font-medium">GPay</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-bold text-slate-900 dark:text-slate-100">$1,200.00</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-900/20 text-green-600 dark:text-green-400 text-xs font-bold">
+<span class="size-1.5 rounded-full bg-green-500"></span>
+                                        Verified
+                                    </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors cursor-pointer">
+<td class="px-6 py-4">
+<div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Sep 05, 2023</div>
+<div class="text-xs text-slate-500">02:15 PM</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-mono text-slate-600 dark:text-slate-400">#REC-87742</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[12px] text-slate-400">payments</span>
+<span class="text-[10px] text-slate-400 uppercase font-medium">Cash</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-bold text-slate-900 dark:text-slate-100">$850.00</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-900/20 text-green-600 dark:text-green-400 text-xs font-bold">
+<span class="size-1.5 rounded-full bg-green-500"></span>
+                                        Verified
+                                    </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors cursor-pointer">
+<td class="px-6 py-4">
+<div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Aug 20, 2023</div>
+<div class="text-xs text-slate-500">11:30 AM</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-mono text-slate-600 dark:text-slate-400">#REC-86500</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[12px] text-slate-400">account_balance</span>
+<span class="text-[10px] text-slate-400 uppercase font-medium">UPI</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-bold text-slate-900 dark:text-slate-100">$1,200.00</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-orange-100 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 text-xs font-bold">
+<span class="size-1.5 rounded-full bg-orange-500"></span>
+                                        Pending
+                                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-slate-50/50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 text-center">
+<button class="text-sm font-bold text-primary hover:underline">View All Transactions</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-2 pb-6 pt-2 z-20">
+<div class="max-w-md mx-auto flex justify-around">
+<a class="flex flex-col items-center gap-1 px-4 py-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 px-4 py-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-bold">Students</span>
+</a>
+<a class="flex flex-col items-center gap-1 px-4 py-1 text-primary" href="#">
+<span class="material-symbols-outlined font-variation-settings-'FILL'1">receipt_long</span>
+<span class="text-[10px] font-bold">Fees</span>
+</a>
+<a class="flex flex-col items-center gap-1 px-4 py-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</a>
+</div>
+</nav>
+</body></html>
